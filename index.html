@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    .navitemcu li :hover {
+      border-bottom: 4px solid black;
+    }
+
+    nav {
+      height: 70px;
+    }
+
+
+    .navbartext{
+font-size: 12px;
+font-weight: bold;
+    }
+
+    .addproductcu{
+      position: fixed;
+      bottom: 80px;
+      right: 0;
+      font-size: 24px;
+    }
+    .ullist{
+      list-style-type: none;
+    }
+
+
+    .editproductcu{
+      position: fixed;
+      bottom:30px;
+      right: 0;
+      font-size: 24px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-white shadow fs-4 navitemcu">
+    <div class="container-fluid">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSAtMlgnaXZK00PYZJzhJ_S7VKUwTryLRHDg&s"
+        width="50px">
+      <!-- <a class="navbar-brand" href="#">Ecommarce</a> -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-3 ">
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"> MEN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">WOMEN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">KIDS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">HOME&LIVING</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">BEAUTY</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">STUDIO</a>
+          </li>
+          
+
+
+          
+          <!-- <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li> -->
+        </ul>
+<form class="d-flex me-5" role="search"> 
+          <input class="form-control me-2 bg-secondary-subtle" id="searchInput" type="search" placeholder="Search" aria-label="Search" style="width: 300px;">
+           <button class="btn btn-outline-success me-5" type="submit">Search</button> 
+        </form>
+
+        <div class="fs-4 text-center mt-4 me-3  " >
+          <i class="fa-regular fa-user"></i>         
+           <p class="navbartext">
+            Profile</p>
+
+        </div>
+
+
+        <div class="fs-4 text-center mt-4 me-3">
+          <i class="fa-regular fa-heart "></i>
+          <p class="navbartext">
+            Wishlist</p>
+        </div>
+        <div class="fs-4 text-center mt-4 me-2 ">
+          <i class="fa-regular fa-clipboard"></i>     <p class="navbartext">
+           Bag</p>
+        </div>
+
+
+        
+        <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+
+
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+ <h1 class="text-center">Add Product</h1>
+<div class="text-center border container p-2">
+  <input type="text" placeholder="Product Name" id="nameIP">
+  <input type="text" placeholder="Product Discription" id="DiscriptionIP">
+
+  <input type="number" placeholder="Product Prize" id="PrizeIP">
+  <input type="text" placeholder="Product Picture link" id="Productpiclink">
+  <input type="number" placeholder="Product Quatity" id="quatityIP">
+
+  <button class="btn btn-primary addprobtn" onclick="addproduct()" >Add Product</button>
+
+</div> 
+
+
+
+
+
+
+     <div>
+ 
+      <div id="productList" class="d-md-flex justify-content-evenly mt-4">
+      <!-- productlist -->
+      </div>
+    </div> 
+
+
+    <!-- <span class="bg-warning addproductcu " data-bs-toggle="modal" data-bs-target="#exampleModal1"> ADD PRODUCT</span>
+
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+       
+           <div class="container">
+           
+              <input type="text" placeholder="Product Name" id="nameIP1" class="border-0 border-bottom row w-100 mt-2">
+
+    
+             
+             <input type="text" placeholder="Product Discription" id="DiscriptionIP1" class="border-0 border-bottom row w-100 mt-2">
+            
+              <input type="number" placeholder="Product Prize" id="PrizeIP1" class="border-0 border-bottom row w-100 mt-2" >
+              <input type="number" placeholder="Product Quatity" id="quatityIP1" class="border-0 border-bottom row w-100 mt-2 "> 
+
+              <input type="text" placeholder="Product Picture link" id="Productpiclink1" class="border-0 border-bottom w-100 row mt-2 mb-4">
+            </div> 
+            
+         
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary" onclick="addproduct()">Add Product</button>
+
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+
+<!-- <edit product> -->
+
+    <!-- <span class="bg-warning editproductcu " data-bs-toggle="modal" data-bs-target="#exampleModal25">EDIT Product <span class="fs-5 text-secondary">See Here</span></span>
+
+    <div class="modal fade" id="exampleModal25" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"> EDIT Product</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+       
+           <div class="container">
+           
+              <input type="text" placeholder="Product Name" id="nameIP" class="border-0 border-bottom row w-100 mt-2">
+
+    
+             
+             <input type="text" placeholder="Product Discription" id="DiscriptionIP" class="border-0 border-bottom row w-100 mt-2">
+            
+              <input type="number" placeholder="Product Prize" id="PrizeIP" class="border-0 border-bottom row w-100 mt-2" >
+              <input type="number" placeholder="Product Quatity" id="quatityIP" class="border-0 border-bottom row w-100 mt-2 "> 
+
+              <input type="text" placeholder="Product Picture link" id="Productpiclink" class="border-0 border-bottom w-100 row mt-2 mb-4">
+            </div> 
+            
+         
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary" onclick="editproduct()">Save</button>
+
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+ <!-- footer -->
+
+<footer class="bg-secondary-subtle  " style="margin-top: 200px;">
+  <div class="row container-fluid p-5">
+    <div class="col-3">
+  
+      <ul class="ullist">
+        <li class="fw-bold">ONLINE SHOPING</li>
+       <li>Men</li>
+       <li>Women</li>
+       <li>Kids</li>
+       <li>Beauty</li>
+       <li>Home and Living</li>
+       <li>Gift Card</li>
+       <li>Myntra Insider</li>
+      
+      </ul>
+    </div>
+    <div class="col-3">
+      <ul class="ullist">
+        <li class="fw-bold">CUSTOMER POLICIES</li>
+
+        <li>Explore</li>
+        <li>Write Review</li>
+        <li>Shipping</li>
+        <li>Cancellation</li>
+        <li>Careers</li>
+        <li>Help Center</li>
+        <li>Return</li>
+        <li>Accessibility statement</li>
+    </div>
+  
+  
+    <div class="col-3">
+      <ul class="ullist">
+        <li class="fw-bold">USEFUL LINKS</li>
+
+        <li> App</li>
+        <li>Blog</li>
+        <li> Android App</li>
+        <li>Businees Advantage</li>
+        <li>Resource and Policies</li>
+        <li>Get the App</li>
+       
+        <li>Press</li>
+       
+        <li>Trust and safety</li>
+    </div>
+   
+    
+    <div class="col-3 " >
+      <ul class="ullist">
+        <li class="fw-bold">KEEP IN TOUCH</li>
+
+  <p class="fs-4"><span><i class="fa-brands fa-instagram"></i></span>
+    <span class="p-3"><i class="fa-brands fa-facebook"></i></span>
+   <span> <i class="fa-brands fa-twitter"></i></span>
+  </ul>
+  
+    </div>
+   
+  </div>
+  
+  
+  <div class="row container-fluid ">
+    <div class="col-1 mb-4">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSAtMlgnaXZK00PYZJzhJ_S7VKUwTryLRHDg&s"
+      width="80px" class="rounded-circle ms-4">  </div>
+  <div class="col-11 ">
+    <b>SHOP ONLINE AT MYNTRA WITH COMPLETE CONVENIENCE</b>
+    <p>Another reason why Myntra is the best of all online stores is the complete convenience that it offers. You can view your favourite brands with price options for different products in one place. A user-friendly interface will guide you through your selection process. Comprehensive size charts, product information and high-resolution images help you make the best buying decisions. You also have the freedom to choose your payment options, be it card or cash-on-delivery. The 14-day returns policy gives you more power as a buyer. Additionally, the try-and-buy option for select products takes customer-friendliness to the next level.</p>
+  <p>Enjoy the hassle-free experience as you shop comfortably from your home or your workplace. You can also shop for your friends, family and loved-ones and avail our gift services for special occasions.</p>
+  </div>
+  
+  
+  
+  </footer>
+  
+
+      
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
